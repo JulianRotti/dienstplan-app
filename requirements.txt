@@ -1,0 +1,6 @@
+networkx
+notebook
+pandas
+openpyxl
+matplotlib
+kivy
