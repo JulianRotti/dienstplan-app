@@ -6,18 +6,21 @@ Dienstplan App is a Python-based application designed to find the optimal worker
 2. the number of workers needed for each process
 3. the availabilities of the workers
 4. the processes each worker is able to execute
+
 for each day of the week.
 
 Built with Kivy, it offers a user-friendly interface for uploading an Excel file with the requirements and downloading the corresponding optimal worker allocation as a csv.
 
 ### Input Excel
-The input Excel must have format .xlsx and following worksheets. Naming and capitalization of letters must be identical, otherwise the code won't work.
+The input Excel must have format .xlsx and following worksheets.
 
 1. "Qualifikationen"
 
 The column Mitarbeiter contains the workers to be allocated. The column process_n determines whether the respective worker is able to execute process_n ("Ja") or not ("Nein").
 
-| Nr. | Mitarbeiter | process1 | process2 | process2 | ... | 
+The names of the processes and workers can be freely chosen. Pay attention to capitalization of Ja/Nein.
+
+| Nr. | Mitarbeiter | process1 | process2 | process3 | ... | 
 | --- | ----------- | -------- | -------- | -------- | --- |
 | 1   | worker1     | Ja/Nein  | Ja/Nein  | Ja/Nein  | ... |
 | 2   | worker2     | Ja/Nein  | Ja/Nein  | Ja/Nein  | ... |
@@ -26,6 +29,8 @@ The column Mitarbeiter contains the workers to be allocated. The column process_
 2. "Arbeitstage"
 
 The column Mitarbeiter contains the workers to be allocated. The column day_n determines whether the respective worker will be working on day_n ("Ja") or not ("Nein"). It is assumed that each worker has the capacity to perform exactly one process in one day.
+
+The names of the workers must match those in worksheet "Qualifikationen". The names of the days can be freely chosen. Pay attention to capitalization of Ja/Nein.
 
 | Nr. | Mitarbeiter | day1     | day2     | day3     | ... | 
 | --- | ----------- | -------- | -------- | -------- | --- |
@@ -37,10 +42,12 @@ The column Mitarbeiter contains the workers to be allocated. The column day_n de
 
 The column Prozesse contains the processes to be executed. The column day_n determines how many workers (n_ij) are needed to execute the process on day_n.
 
+The names of the processes and days must match those in worksheet "Arbeitstage" and "Qualifikationen". n_ij are non-negative integers.
+
 | Prozesse | day1 | day2 | day3 | ... | 
 | -------- | ---- | ---- | ---- | --- |
 | process1 | n11  | n12  | n13  | ... |
-| process1 | n11  | n12  | n13  | ... |
+| process1 | n21  | n22  | n23  | ... |
 | ...      | ...  | ...  | ...  | ... |
 
 ### Output csv
