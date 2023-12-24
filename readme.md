@@ -47,7 +47,7 @@ The names of the processes and days must match those in worksheet "Arbeitstage" 
 | Prozesse | day1 | day2 | day3 | ... | 
 | -------- | ---- | ---- | ---- | --- |
 | process1 | n11  | n12  | n13  | ... |
-| process1 | n21  | n22  | n23  | ... |
+| process2 | n21  | n22  | n23  | ... |
 | ...      | ...  | ...  | ...  | ... |
 
 ### Output csv
@@ -57,7 +57,7 @@ The output csv contains the optimal shift such that the number of allocated work
 If column Mitarbeiter has entry N/A it means that there all workers who are able to execute the respective process are already busy that day. If column Prozess has an entry N/A it means that the respective worker is not assigned to any process that day.
 
 | Tag  | Mitarbeiter | Prozess  | 
-| ---- | ----------- | -------_ |
+| ---- | ----------- | -------  |
 | day1 | worker1     | process1 |
 | day1 | worker2     | process3 |
 | day2 | N/A         | process1 |
